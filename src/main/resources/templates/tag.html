@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>标签页</title>
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" />
+</head>
+<body>
+<!--导航-->
+<nav>
+    <div class="ui attached segment m-boundary">
+        <div class="ui container">
+            <div class="ui attached secondary menu m-boundary">
+                <a href="#" th:href="@{/}" class="item"><i class="home icon"></i>首页</a>
+                <a href="#" th:href="@{/type/-1}" class="item"><i class="idea icon"></i>分类</a>
+                <a href="#" th:href="@{/tag/-1}" class="active item"><i class="tags icon"></i>标签</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--中间内容-->
+<div class="ui container blog-width">
+    <!--    头部-->
+    <div class="ui attached segment">
+        <div class="ui two column grid">
+            <div class="column">
+                <h2 class="ui teal header">标签</h2>
+            </div>
+            <div class="right aligned column">
+                共<h2 class="ui orange header type-text" th:text="${#arrays.length(tags)}">88</h2>篇
+            </div>
+        </div>
+    </div>
+    <!--    中间-->
+    <div class="ui attached segment">
+        <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui labeled button blog-margin-left-bottom"  th:each="tag : ${tags}">
+            <div href="#" class="ui basic button"  th:classappend="${tag.id == activeTagId} ? 'teal'" th:text="${tag.name}">思想</div>
+            <div class="ui left pointing basic label" th:classappend="${tag.id == activeTagId} ? 'teal'" th:text="${#arrays.length(tag.blogs)}">22</div>
+        </a>
+        <!--/*-->
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想与感悟</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想与感悟</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想与感悟</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想与感悟</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <div class="ui labeled button blog-margin-left-bottom">
+            <div class="ui teal basic button">思想与感悟</div>
+            <div class="ui teal left pointing basic label">22</div>
+        </div>
+        <!--*/-->
+    </div>
+    <!--    中间及一下部分-->
+    <div class="ui teal top attached segment">
+        <!--        第一部分-->
+        <div class="ui grid blog-margin-mini" th:each="blog:${page.content}">
+            <div class="ui eleven wide column">
+                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="c1 blogFont"><h1 class="font" th:text="${blog.title}">spring boot 实战开发教程一</h1></a>
+                    <p class="font little text high" th:text="|${blog.description}......|">做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?</p>
+                <div class="ui grid">
+                    <div class="eleven wide column">
+                        <div class="ui horizontal list">
+                            <div class="item">
+                                <img src="../static/images/halo.jpg" th:src="@{/images/halo.jpg}" alt="" class="ui avatar image">
+                                <div class="content"><span class="little" th:text="${blog.user.nickname}">小白</span></div>
+                            </div>
+                            <div class="item">
+                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-02-22</span>
+                            </div>
+                            <div class="item">
+                                <i class="eye icon"></i><span th:text="${blog.views}">666</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right aligned five wide column">
+                        <a href="#" th:href="@{/type/-1}" class="ui teal basic label" th:text="${blog.type.name}">认知升级</a>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <img src="../static/images/type-image.jpg" th:src="@{/images/type-image.jpg}">
+            </div>
+        </div>
+        <!--        第二篇-->
+<!--/*-->
+        <div class="ui grid blog-margin-mini">
+            <div class="ui eleven wide column">
+                <a href="#" class="c1 blogFont"><h1 class="font">spring boot 实战开发教程一</h1>
+                    <p class="font little text high">做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?</p>
+                </a>
+                <div class="ui grid">
+                    <div class="eleven wide column">
+                        <div class="ui horizontal list">
+                            <div class="item">
+                                <img src="../static/images/halo.jpg" th:src="@{/images/halo.jpg}" alt="" class="ui avatar image">
+                                <div class="content"><span class="little">小白</span></div>
+                            </div>
+                            <div class="item">
+                                <i class="calendar icon"></i>2020-02-22
+                            </div>
+                            <div class="item">
+                                <i class="eye icon"></i>666
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right aligned five wide column">
+                        <a href="#" target="_blank" class="ui teal basic label">认知升级</a>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <img src="../static/images/type-image.jpg" th:src="@{/images/type-image.jpg}">
+            </div>
+        </div>
+        <!--    第三篇-->
+
+        <div class="ui grid blog-margin-mini">
+            <div class="ui eleven wide column">
+                <a href="#" class="c1 blogFont"><h1 class="font">spring boot 实战开发教程一</h1>
+                    <p class="font little text high">做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?</p>
+                </a>
+                <div class="ui grid">
+                    <div class="eleven wide column">
+                        <div class="ui horizontal list">
+                            <div class="item">
+                                <img src="../static/images/halo.jpg" th:src="@{/images/halo.jpg}" alt="" class="ui avatar image">
+                                <div class="content"><span class="little">小白</span></div>
+                            </div>
+                            <div class="item">
+                                <i class="calendar icon"></i>2020-02-22
+                            </div>
+                            <div class="item">
+                                <i class="eye icon"></i>666
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right aligned five wide column">
+                        <a href="#" target="_blank" class="ui teal basic label">认知升级</a>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <img src="../static/images/type-image.jpg" th:src="@{/images/type-image.jpg}">
+            </div>
+        </div>
+        <!--    第四篇-->
+
+        <div class="ui grid blog-margin-mini">
+            <div class="ui eleven wide column">
+                <a href="#" class="c1 blogFont"><h1 class="font">spring boot 实战开发教程一</h1>
+                    <p class="font little text high">做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?</p>
+                </a>
+                <div class="ui grid">
+                    <div class="eleven wide column">
+                        <div class="ui horizontal list">
+                            <div class="item">
+                                <img src="../static/images/halo.jpg" th:src="@{/images/halo.jpg}" alt="" class="ui avatar image">
+                                <div class="content"><span class="little">小白</span></div>
+                            </div>
+                            <div class="item">
+                                <i class="calendar icon"></i>2020-02-22
+                            </div>
+                            <div class="item">
+                                <i class="eye icon"></i>666
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right aligned five wide column">
+                        <a href="#" target="_blank" class="ui teal basic label">认知升级</a>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <img src="../static/images/type-image.jpg" th:src="@{/images/type-image.jpg}">
+            </div>
+        </div>
+        <!--    第五篇-->
+        <div class="ui grid blog-margin-mini">
+            <div class="ui eleven wide column">
+                <a href="#" class="c1 blogFont"><h1 class="font">spring boot 实战开发教程一</h1>
+                    <p class="font little text high">做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?做内容站点到底做什么好呢?</p>
+                </a>
+                <div class="ui grid">
+                    <div class="eleven wide column">
+                        <div class="ui horizontal list">
+                            <div class="item">
+                                <img src="../static/images/halo.jpg" th:src="@{/images/halo.jpg}" alt="" class="ui avatar image">
+                                <div class="content"><span class="little">小白</span></div>
+                            </div>
+                            <div class="item">
+                                <i class="calendar icon"></i>2020-02-22
+                            </div>
+                            <div class="item">
+                                <i class="eye icon"></i>666
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right aligned five wide column">
+                        <a href="#" target="_blank" class="ui teal basic label">认知升级</a>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <img src="../static/images/type-image.jpg" th:src="@{/images/type-image.jpg}">
+            </div>
+        </div>
+        <!--*/-->
+    </div>
+
+    <div class="ui bottom attached segment">
+    <div class="ui two column grid" align="center" th:if="${page.totalPages}>1">
+        <div class="column">
+            <a class="background" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+        </div>
+        <div class="column">
+            <a class="background" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+        </div>
+    </div>
+    </div>
+</div>
+<br>
+
+<!--尾部链接-->
+<footer class="ui inverted vertical segment">
+    <div class="ui container" align="center">
+        <div class="ui inverted divided stackable grid">
+            <!--微信二维码 -->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/ge.png" th:src="@{/images/ge.png}" class="ui rounded image" alt="" style="width: 110px;">
+                    </div>
+                </div>
+            </div>
+            <!-- 最新博客-->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced font">最新博客</h4>
+                    <a href="#" class="item font">技术博客</a>
+                    <a href="#" class="item font">美食（User story）</a>
+                    <a href="#" class="item font">旅游文化（User story）</a>
+                </div>
+            </div>
+            <!-- 联系我-->
+            <div class="four wide column">
+                <div class="ui inverted link list">
+                    <h4 class="ui inverted header font">联系我们</h4>
+                    <a href="#" class="item font">微信公众号：阑尾科技</a>
+                </div>
+            </div>
+            <!--个人简介 -->
+            <div class="six wide column">
+                <h4 class="ui inverted header font">blog</h4>
+                <p class="font">制作一个最简易的博客</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div style="width:300px;margin:0 auto; padding:20px 0;">
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011102003690" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img
+                    src="" style="float:left;" />
+                <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鄂公网安备 42011102003690号</p>
+            </a>
+        </div>
+        <p class="font">Copyright @ 2019-2020 EasyStudy Designed by 阑尾科技 </p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+</body>
+</html>

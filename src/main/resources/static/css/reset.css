@@ -1,0 +1,98 @@
+.c1{
+    color: #3c3c3c!important;
+}
+.big{
+    font-size: 18px;
+}
+.little-big{
+    font-size: 16px!important;
+}
+.c2{
+    color: #cacaca!important;
+}
+.little{
+    font-size: 12px!important;
+}
+.font{
+    font-family: 宋体;
+}
+.high{
+    line-height: 24px!important;
+}
+.background{
+    border: none!important;
+    display: inline-block;!important;
+    color: #ffffff!important;
+    background: orange;!important;
+    border-radius: 2px;
+    font-family: 宋体;
+    font-size: 12px;
+}
+/*首页*/
+
+
+/*body{*/
+/*    background: url("../images/so-white.png")!important;*/
+/*}*/
+.blog-padding-mini{
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+.blog-margin-mini{
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
+.blog-margin-left-bottom{
+    margin-left: 1em !important;
+    margin-bottom: 1em !important;
+}
+.blog-margin{
+    margin-bottom: 3em !important;
+}
+.blog-margin-min1{
+    margin-bottom: 1em !important;
+}
+.blog-padding-left-mimi{
+    padding-right: 5em!important;
+}
+.m-boundary{
+    border: none!important;
+}
+.item{
+    border: none!important;
+}
+.buttonOne{
+    width: 200px;
+    background: #3c3c3c;
+    color: white;
+    height: 40px;
+    border-radius: 10px;
+}
+.ren{
+    float: right!important;
+}
+.blogFont:hover{
+    color: teal!important;
+}
+
+/*博客详情*/
+.big{
+    font-size: 24px!important;
+}
+.blog-text{
+    color: teal;!important;
+}
+.blog-width{
+    width: 60em!important;
+    margin: auto!important;
+}
+.blog-padding-text{
+    padding-left: 4em!important;
+    padding-right: 4em!important;
+}
+/*分类*/
+.type-text{
+    display: inline-block;!important;
+}
+/*归档*/
+

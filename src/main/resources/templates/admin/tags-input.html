@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>标签新增</title>
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" />
+</head>
+<body>
+<!--个人信息-->
+<nav>
+    <div class="ui vertical inverted  segment">
+        <div class="ui container">
+            <div class="ui inverted menu">
+                <a href="#" th:href="@{/admin/blogs}" class="item"><i class="home  icon"></i>博客</a>
+                <a href="#" th:href="@{/admin/types}" class="item"><i class="idea  icon"></i>分类</a>
+                <a href="#" th:href="@{/admin/tags}" class="active item"><i class="tags  icon"></i>标签</a>
+                <div class="ui right inverted  menu">
+                    <div class="ui dropdown item">
+                        <img src="../../static/images/halo.jpg" th:src="@{/images/halo.jpg}" class="ui avatar image">
+                        小白
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--二级标题-->
+<div class="ui bottom attached pointing menu">
+    <div class="ui container">
+        <div class="ui right basic secondary menu">
+            <a href="#" th:href="@{/admin/tags/input}" class="active item">新增</a>
+            <a href="#" th:href="@{/admin/tags}" class="teal  item">列表</a>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!--中间内容-->
+<div class="ui container">
+    <form action="#" method="post" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" class="ui form">
+        <input type="hidden" name="id" th:value="*{id}">
+        <div class="field">
+            <div class="ui left labeled input">
+                <label class="ui teal basic label">名称</label>
+                <input type="text" name="name" placeholder="标签名称">
+            </div>
+        </div>
+        <div class="ui error message"></div>
+        <div class="ui right aligned container">
+            <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+            <button class="ui teal submit button">提交</button>
+        </div>
+
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script>
+
+    $('.ui.dropdown').dropdown();
+
+    $('.ui.form').form({
+        fields:{
+            title:{
+                identifier:'title',
+                rules:[{
+                    type:'empty',
+                    prompt:'标题：请输入博客标题'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>
